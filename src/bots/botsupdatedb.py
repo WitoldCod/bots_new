@@ -13,7 +13,10 @@ import sys
 if sys.version_info[0] > 2:
     basestring = unicode = str
 
-from django.utils.translation import ugettext as _
+try:
+    from django.utils.translation import gettext as _
+except ImportError:
+    from django.utils.translation import ugettext as _
 
 from . import botslib
 from . import botsinit

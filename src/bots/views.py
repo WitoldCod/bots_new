@@ -12,7 +12,10 @@ import subprocess
 import traceback
 import socket
 import django
-from django.utils.translation import ugettext as _
+try:
+    from django.utils.translation import gettext as _
+except ImportError:
+    from django.utils.translation import ugettext as _
 from django.contrib import messages
 from . import forms
 from . import models

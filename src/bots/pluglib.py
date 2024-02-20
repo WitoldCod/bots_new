@@ -11,7 +11,10 @@ import zipimport
 import codecs
 import django
 from django.core import serializers
-from django.utils.translation import ugettext as _
+try:
+    from django.utils.translation import gettext as _
+except ImportError:
+    from django.utils.translation import ugettext as _
 from . import models
 from . import botslib
 from . import botsglobal

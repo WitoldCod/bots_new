@@ -21,7 +21,10 @@ except ImportError:
 if sys.version_info[0] > 2:
     basestring = unicode = str
 
-from django.utils.translation import ugettext as _
+try:
+    from django.utils.translation import gettext as _
+except ImportError:
+    from django.utils.translation import ugettext as _
 
 #bots-modules (no code)
 from . import botsglobal

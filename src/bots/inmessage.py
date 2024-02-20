@@ -12,7 +12,10 @@ try:
 except ImportError:
     from xml.etree import ElementTree as ET
 import json as simplejson
-from django.utils.translation import ugettext as _
+try:
+    from django.utils.translation import gettext as _
+except ImportError:
+    from django.utils.translation import ugettext as _
 #bots-modules
 from . import botslib
 from . import botsglobal

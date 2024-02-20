@@ -2,7 +2,10 @@
 
 from __future__ import unicode_literals
 import django
-from django.utils.translation import ugettext as _
+try:
+    from django.utils.translation import gettext as _
+except ImportError:
+    from django.utils.translation import ugettext as _
 #***********
 from . import models
 from . import viewlib
